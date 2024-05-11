@@ -1,5 +1,5 @@
 {
-  "name": "react_vite",
+  "name": "CamperClub",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,14 +11,21 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.17",
+    "@reduxjs/toolkit": "^2.2.4",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "axios": "^1.6.8",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
+    "react-css-modules": "^4.7.11",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.2",
     "react-router-dom": "^6.15.0",
+    "react-toastify": "^10.0.5",
+    "redux": "^5.0.1",
     "styled-components": "^6.0.7",
     "vite-plugin-svgr": "^3.2.0"
   },

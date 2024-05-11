@@ -1,0 +1,95 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.header {
+   background-color: silver;
+    padding: 20px 64px;
+    max-width: 1440px;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logoWrapper {
+   display: flex;
+   flex-direction: column;
+}
+.logo {
+    
+   stroke: var(--primary-color-black);
+   stroke-width: 2px;
+}
+.name {
+color: var(--primary-color-black);
+font-family: "Inter", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.headerList {
+    display: flex;
+    list-style: none;
+   margin: 0 auto;
+    padding: 10px;
+    gap: 30px;
+    justify-content: space-between;
+    
+}
+
+.headerItem {
+    text-decoration: none;
+    color: var(--primary-color-text);
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    transition: 0.5s;
+    padding: 10px;
+}
+.catalogWrapper {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.active {
+    color: var(--primary-color-black);
+}
+.footer {
+    background-color: var(--primary-color-black);
+    padding: 20px 64px;
+    max-width: 1440px;
+    margin: 0;
+    justify-content: flex-end;
+}
+.footerText {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    color: var(--primary-color-white);
+    margin-top: 40px;
+}
+.footerWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.camper {
+    width: 30%;
+    height: auto;
+}
+.footerName {
+color: var(--primary-color-white);
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    transition: 0.5s;
+    margin: 0;
+    padding: 0;
+}
+.logoWrapperFooter {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-end;
+}
