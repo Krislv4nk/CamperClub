@@ -1,9 +1,9 @@
 
 import css from '../CamperCard.module.css';
-import icons from '../../../assets/icons/icons/sprite.svg';
-import first from '../../../assets/icons/icons/Switch.jpg';
-import second from '../../../assets/icons/icons/Switch1.jpg';
-import third from '../../../assets/icons/icons/Tooltip.jpg';
+import icons from '../../../assets/icons/sprite.svg';
+import first from '../../../assets/images/Switch.jpg';
+import second from '../../../assets/images/Switch1.jpg';
+import third from '../../../assets/images/Tooltip.jpg';
 
 export const Modal = ({ camper, onClose }) => {
 

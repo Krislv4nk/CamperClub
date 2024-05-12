@@ -6,7 +6,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import { Modal } from './Modal/Modal';
 import css from './CamperCard.module.css';
-import icons from '../../assets/icons/icons/sprite.svg';
+import icons from '../../assets/icons/sprite.svg';
 
 export const Camper = ({ camper }) => {
     const { _id, gallery,

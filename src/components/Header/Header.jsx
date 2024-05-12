@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import camper from './../../assets/icons/icons/camper.png'
+import camper from './../../assets/images/camper.png'
 import css from './Header.module.css';
 
 
