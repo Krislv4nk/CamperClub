@@ -16,15 +16,11 @@ align-items: center;
    display: flex;
    flex-direction: column;
 }
-.logo {
-    
-   stroke: var(--primary-color-black);
-   stroke-width: 2px;
-}
+
 .name {
 color: var(--primary-color-black);
 font-family: "Inter", sans-serif;
-    font-size: 40px;
+    font-size: 15px;
     font-weight: 600;
     transition: 0.5s;
 }
@@ -75,21 +71,21 @@ font-family: "Inter", sans-serif;
     justify-content: space-between;
 }
 .camper {
-    width: 30%;
+    width: 15%;
     height: auto;
+    margin: 0;
 }
 .footerName {
 color: var(--primary-color-white);
-    font-size: 30px;
+    font-size: 15px;
     font-weight: 600;
     font-family: "Inter", sans-serif;
     transition: 0.5s;
-    margin: 0;
-    padding: 0;
 }
 .logoWrapperFooter {
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
    align-items: flex-end;
+
 }
