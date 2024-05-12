@@ -4,6 +4,10 @@ import icons from '../../../assets/icons/sprite.svg';
 import first from '../../../assets/images/Switch.jpg';
 import second from '../../../assets/images/Switch1.jpg';
 import third from '../../../assets/images/Tooltip.jpg';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 export const Modal = ({ camper, onClose }) => {
 
@@ -19,21 +23,21 @@ export const Modal = ({ camper, onClose }) => {
                     <div className={css.modalBox}><svg width={16} height={16} className={css.svg}>
                         <use href={`${icons}#icon-map-pin`}></use></svg><p className={css.modalText}> {camper.location}</p></div>
                 </div>
-                <p className={css.modalTitle}>€{camper.price}.00</p></div>
-                <div className={css.modalGallery}>
-                    <img src={`url(${first})`} alt="camper" style={{ backgroundImage: `url(${first})` }} className={css.modalFoto} />
-                    <img src={`url(${second})`} alt="camper" style={{ backgroundImage: `url(${second})` }} className={css.modalFoto}/>
-                    <img src={`url(${third})`} alt="camper" style={{ backgroundImage: `url(${third})` }} className={css.modalFoto} />
-                </div>
-                
-            <p className={css.modalDescription}>Embrace simplicity and freedom with the Mavericks panel truck,
-                an ideal choice for solo travelers or couples seeking
-                a compact and efficient way to explore the open roads. This
-                no-frills yet reliable panel truck offers the essentials
-                for a comfortable journey, making it the perfect companion for
-                those who value simplicity and functionality.</p>
-    <div className={css.detailsBox}><h4 className={css.detailsTitle}>Features</h4>
-    <h4 className={css.detailsTitle}>Reviews</h4></div>
+                <p className={css.modalTitle}>€{camper.price.toFixed(2)}</p></div>
+            <ul className={css.modalGallery}>
+            {camper.gallery.map((item) => (
+              <li key={item}>
+                <img src={item} alt="camper" className={css.modalFoto} />
+              </li>
+            ))}
+          </ul>  
+            <p className={css.modalDescription}>{camper.description}</p>
+            <ul className={css.detailsBox}>
+                <li><button type="button" className={css.detailsTitle}>Features</button></li>
+                <li><button type="button" className={css.detailsTitle}>Reviews</button></li></ul>
+
+
+
         </div>
     )
 }

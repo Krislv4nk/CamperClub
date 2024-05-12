@@ -4,6 +4,7 @@ import { selectFavoriteCampers } from "../../redux/selectors";
 import { addFavoriteCamperThunk, removeFavoriteThunk } from '../../redux/operations';
 import { StyledEngineProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
+import {Tooltip} from './Tooltip/Tooltip';
 import { Modal } from './Modal/Modal';
 import css from './CamperCard.module.css';
 import icons from '../../assets/icons/sprite.svg';
@@ -54,7 +55,7 @@ const handleResetFavoriteClick = ({ _id }) => {
                 <div className={css.nameWrapper}>
                     <p className={css.name}>{name}</p>
                     <div className={css.priceWrapper}>
-            <p className={css.name}>€{price}.00</p>
+            <p className={css.name}>€{price.toFixed(2)}</p>
     
                 {isFavorite
                             ? <button onClick={handleSetFavoriteClick}>
@@ -69,38 +70,23 @@ const handleResetFavoriteClick = ({ _id }) => {
                     
                 <div className={css.locationWrapper}><svg width={16} height={16} className={css.svg}>
                         <use href={`${icons}#icon-map-pin`}></use></svg><p>{location}</p></div></div>
-  <div id="overlay" className={css.overlay}></div>
-            <p className={css.description} title={description} onClick={(event) => {
-                    const p = event.currentTarget;
-                    const overlay = document.getElementById('overlay');
-        if   (p.style.whiteSpace === "nowrap") {
-            p.style.whiteSpace = "normal";
-            p.style.overflow = "visible";
-            p.style.textOverflow = "clip";
-            p.classList.remove('hidden-text');
-             overlay.style.display = "block";
-        } else {
-            p.style.whiteSpace = "nowrap";
-            p.style.overflow = "hidden";
-            p.style.textOverflow = "ellipsis";
-            p.classList.add('hidden-text');
-             overlay.style.display = "none";
-                    }
-                }}> {description}</p>
+                <div id="overlay" className={css.overlay}></div>
+                <Tooltip title={description}>
+                <p className={css.description}> {description}</p></Tooltip>
                
             <ul className={css.list}>
                     <li className={css.listItem} ><svg width={20} height={20} >
                         <use href={`${icons}#icon-Users`}></use></svg> {adults} adults</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
                         <use href={`${icons}#icon-Container`}></use></svg> {transmission}</li>
-                    <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
+                    <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
                         <use href={`${icons}#icon-orlen`}></use></svg> {engine} </li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-fork`}></use></svg> {details.kitchen} Kitchen</li>
+                        <use href={`${icons}#icon-fork`}></use></svg> Kitchen</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
                         <use href={`${icons}#icon-Container-1`}></use></svg> {details.beds} beds</li>
-                    <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-ac`}></use></svg> AC</li>
+                    <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
+                        <use href={`${icons}#icon-airConditioner`}></use></svg> AC</li>
             </ul>
                 <button className={css.button} onClick={handleOpenClick}>Show more</button>
                 <StyledEngineProvider injectFirst>
