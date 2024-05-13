@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
      
-    <BrowserRouter basename="/Camper-club">
+    <BrowserRouter basename="/CamperClub">
       <App /><ToastContainer
             position="top-center"
             autoClose={2000}
