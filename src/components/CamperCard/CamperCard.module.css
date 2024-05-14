@@ -218,14 +218,128 @@ line-height: 1.5;
 color: var(--primary-color-text);
 margin-bottom: 44px;
 }
-.detailsBox{
+  
+
+.tabContainer {
     display: flex;
-    margin-bottom: 24px;
     gap: 40px;
+    position: relative;
 }
-.detailsTitle {
-    font-weight: 600;
+
+.formWrapper {
+    border: 1px solid rgba(16, 24, 40, 0.2);
+border-radius: 10px;
+padding: 24px;
+width: 448px;
+height: 532px;
+margin-top: 54px;
+margin-bottom: 40px;
+position: absolute;
+transform: translate(100%, -110%);
+
+}
+.formTitle {
+    
+font-weight: 600;
 font-size: 20px;
 line-height: 120%;
+color: var(--primary-color-black);
+margin-bottom: 8px;
+}
+.formText {
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+margin-bottom: 24px;
+}
+.label {
+    display: none;
+}
+.input {
+    border-radius: 10px;
+padding: 18px;
+width: 400px;
+height: 56px;
+margin-bottom: 14px;
 color: var(--primary-color-text);
+background-color: var(--primary-color-input);
+}
+.input:focus,
+.input:hover {
+    border-color: blue;
+     outline: none;
+}
+.input:invalid {
+    border-color: var(--primary-color-red);
+    color: var(--primary-color-red);
+}
+.input:valid {
+border-color: var(--primary-color-input);
+}
+.textarea {
+    border-radius: 10px;
+padding: 18px;
+width: 400px;
+height: 114px;
+background-color:  var(--primary-color-input);
+margin-bottom: 20px;
+}
+.textarea:focus,
+.textarea:hover {
+    border-color: blue;
+     outline: none;
+}
+.textarea:invalid {
+    border-color: var(--primary-color-red);
+    color: var(--primary-color-red);
+}
+.textarea:valid {
+border-color: var(--primary-color-input);
+}
+
+
+.formBtn {
+border-radius: 200px;
+padding: 16px 60px;
+width: 160px;
+height: 56px;
+color: #fff;
+background-color: var(--primary-color-red);
+}
+.formBtn:hover,
+.formBtn:focus {
+    background-color: var(--secondary-color-red);
+}
+
+.featuresWrapper {
+    width: 430px;
+height: 530px;
+}
+.featureList {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 34px;
+}
+.vehicleTitle {
+    margin-bottom: 38px;
+font-weight: 600;
+font-size: 20px;
+line-height: 120%;
+color: var(--primary-color-black);
+}
+.vehicleList {
+font-weight: 500;
+font-size: 18px;
+line-height: 133%;
+text-align: center;
+color: var(--primary-color-black);
+}
+.vehicleItem {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+   margin-bottom: 8px;
 }

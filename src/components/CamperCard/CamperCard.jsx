@@ -53,7 +53,7 @@ const handleResetFavoriteClick = ({ _id }) => {
             <img src={gallery[0]} alt="camper" className={css.foto} />
             <div className={css.detailsWrapper}>
                 <div className={css.nameWrapper}>
-                    <p className={css.name}>{name}</p>
+                    <h2 className={css.name}>{name}</h2>
                     <div className={css.priceWrapper}>
             <p className={css.name}>€{price.toFixed(2)}</p>
     
@@ -84,9 +84,9 @@ const handleResetFavoriteClick = ({ _id }) => {
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
                         <use href={`${icons}#icon-fork`}></use></svg> Kitchen</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-Container-1`}></use></svg> {details.beds} beds</li>
+                        <use href={`${icons}#icon-beds`}></use></svg> {details.beds} beds</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
-                        <use href={`${icons}#icon-airConditioner`}></use></svg> AC</li>
+                        <use href={`${icons}#icon-AC`}></use></svg> AC</li>
             </ul>
                 <button className={css.button} onClick={handleOpenClick}>Show more</button>
                 <StyledEngineProvider injectFirst>

@@ -1,13 +1,9 @@
 
 import css from '../CamperCard.module.css';
 import icons from '../../../assets/icons/sprite.svg';
-import first from '../../../assets/images/Switch.jpg';
-import second from '../../../assets/images/Switch1.jpg';
-import third from '../../../assets/images/Tooltip.jpg';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import BasicTabs from './TabPanel';
+import { Form } from './Form';
+
 
 export const Modal = ({ camper, onClose }) => {
 
@@ -31,13 +27,13 @@ export const Modal = ({ camper, onClose }) => {
               </li>
             ))}
           </ul>  
-            <p className={css.modalDescription}>{camper.description}</p>
-            <ul className={css.detailsBox}>
-                <li><button type="button" className={css.detailsTitle}>Features</button></li>
-                <li><button type="button" className={css.detailsTitle}>Reviews</button></li></ul>
-
-
-
+        
+        <p className={css.modalDescription}>{camper.description}</p>
+        <BasicTabs camper={camper}/><Form camper={camper}/>
         </div>
     )
 }
+
+
+
+ 
