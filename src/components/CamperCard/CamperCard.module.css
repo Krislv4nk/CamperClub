@@ -343,3 +343,36 @@ justify-content: space-between;
 
    margin-bottom: 8px;
 }
+.reviewsWrapper {
+    width: 430px;
+height: 530px;
+margin-top: 44px;
+}
+.ratingBox {
+    display: flex;
+   justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.container {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+}
+.filledStar {
+   width: 16px;
+height: 16px;
+    fill: var(--primary-color-yellow);
+}
+.avatar {
+    border-radius: 60px;
+width: 60px;
+height: 60px;
+object-fit: cover;
+}
+.emptyStar {
+    width: 16px;
+height: 16px;
+    fill: transparent;
+    stroke: black;
+}
