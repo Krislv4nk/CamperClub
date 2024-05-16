@@ -4,11 +4,12 @@ import  icons  from '../../../assets/icons/sprite.svg';
 export const Reviews = ({ camper }) => {
     const reviews = camper.reviews;
     return (
-        <>
+        <ul className={css.reviewsWrapper}>
             {reviews.map((review) => (
-                <div className={css.review} key={review.reviewer_name + review.comment}>
-                    <div className={css.container}><img className={css.avatar} src="https://via.placeholder.com/50" alt="avatar" />
-                    <div className={css.nameRatingBox}><p className={css.reviewAuthor}>{review.reviewer_name}</p><span className={css.ratingBox}>
+                <li className={css.reviewItem} key={review.reviewer_name + review.comment}>
+                    <div className={css.container}><span className={css.avatar}>{review.reviewer_name.charAt(0).toUpperCase()}</span>
+                        <div className={css.nameRatingBox}>
+                            <p className={css.reviewAuthor}>{review.reviewer_name}</p><span className={css.ratingBox}>
                         {[...Array(5)].map((star, i) => {
                             const ratingValue = i + 1;
                             return (
@@ -20,8 +21,8 @@ export const Reviews = ({ camper }) => {
                     </span>
                     </div></div>
                     <p className={css.reviewText}>{review.comment}</p>
-                </div>
+                </li>
             ))}
-        </>
+        </ul>
     );
 };

@@ -347,17 +347,24 @@ justify-content: space-between;
     width: 430px;
 height: 530px;
 margin-top: 44px;
+gap: 24px;
 }
-.ratingBox {
-    display: flex;
-   justify-content: center;
-    gap: 16px;
+.reviewItem {
     margin-bottom: 24px;
 }
-.container {
+.container { 
     display: flex;
-    gap: 4px;
+    gap: 16px;
+margin-bottom: 44px;
+width: 172px;
+height: 60px;
+align-items: center;
+justify-content: center;
+}
+.nameRatingBox {
+    display: flex;
     flex-direction: column;
+    
 }
 .filledStar {
    width: 16px;
@@ -368,11 +375,31 @@ height: 16px;
     border-radius: 60px;
 width: 60px;
 height: 60px;
-object-fit: cover;
+display: flex;
+background-color: var(--primary-color-input);
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--secondary-color-red);
 }
 .emptyStar {
     width: 16px;
 height: 16px;
     fill: transparent;
     stroke: black;
+}
+.reviewsName {
+    
+font-weight: 600;
+font-size: 18px;
+line-height: 133%;
+color: var(--primary-color-black);
+}
+.reviewText {
+   
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+
 }
