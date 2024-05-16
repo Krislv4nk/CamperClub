@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectFavoriteCampers } from "../../redux/selectors";
 import { addFavoriteCamperThunk, removeFavoriteThunk } from '../../redux/operations';
@@ -25,7 +25,7 @@ export const Camper = ({ camper }) => {
 
     const dispatch = useDispatch();
  
-    const isFavorite = favorites.some(favorite => favorite._id === camper._id);
+    const [isFavorite, setIsFavorite] = useState(false); 
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -35,19 +35,23 @@ export const Camper = ({ camper }) => {
     const handleCloseClick = () => {
         setOpenModal(false);
     }
+useEffect(() => {
+    if (favorites.find((camper) => camper._id === _id)) {
+        dispatch(addFavoriteCamperThunk(_id));
+        setIsFavorite(true);
+    } else {
+        dispatch(removeFavoriteThunk(_id));
+        setIsFavorite(false);
+    }
+}, [dispatch, favorites, _id]);
 
-    const handleSetFavoriteClick = () => {
+ const handleSetFavoriteClick = () => {
         if (!isFavorite) {
             dispatch(addFavoriteCamperThunk(_id));
+        } else {
+            dispatch(removeFavoriteThunk(_id));
         }
     }
-
-
-const handleResetFavoriteClick = ({ _id }) => {
-    if (isFavorite) {
-        dispatch(removeFavoriteThunk(_id));
-    }
-}
     return (
         <li key={camper._id} className={css.item}>
             <img src={gallery[0]} alt="camper" className={css.foto} />
@@ -57,11 +61,11 @@ const handleResetFavoriteClick = ({ _id }) => {
                     <div className={css.priceWrapper}>
             <p className={css.name}>€{price.toFixed(2)}</p>
     
-                {isFavorite
-                            ? <button onClick={handleSetFavoriteClick}>
-                                <svg style={{ fill: 'red' }} width={24} height={24}><use href={`${icons}#icon-like`}></use></svg></button>
-                            : <button onClick={handleResetFavoriteClick}>
-                                <svg style={{ fill: 'transparent', stroke: 'black' }} width={24} height={24}><use href={`${icons}#icon-unlike`}></use></svg></button>}
+                <button onClick={handleSetFavoriteClick}>
+                    {isFavorite
+                        ? <svg style={{ fill: 'red' }} width={24} height={24}><use href={`${icons}#icon-like`}></use></svg>
+                        : <svg style={{ fill: 'transparent', stroke: 'black' }} width={24} height={24}><use href={`${icons}#icon-unlike`}></use></svg>}
+                </button>
     
            </div></div>
                 <div className={css.ratingWrap}><div className={css.ratingWrapper}>

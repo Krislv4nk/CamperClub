@@ -19,10 +19,10 @@ export const getCampersThunk = createAsyncThunk(
 );
 
 export const getFavoritesThunk = createAsyncThunk(
-  'campers/getFavorites',
+  'favorites/getFavorites',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/favorites`);
+      const { data } = await axios.get(`favorites`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,10 +31,10 @@ export const getFavoritesThunk = createAsyncThunk(
 )
 
 export const addFavoriteCamperThunk = createAsyncThunk(
-  'campers/addFavorite',
+  'favorites/addFavorite',
   async (_Id, thunkAPI) => {
     try {
-      const response = await axios.post('/favorites', { id: _Id });
+      const response = await axios.post('favorites', { id: _Id });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -43,7 +43,7 @@ export const addFavoriteCamperThunk = createAsyncThunk(
 )
 
 export const removeFavoriteThunk = createAsyncThunk(
-  'campers/removeFavorite',
+  'favorites/removeFavorite',
   async (_Id, thunkAPI) => {
     try {
       const response = await axios.delete(`/favorites/${_Id}`);
@@ -56,7 +56,7 @@ export const removeFavoriteThunk = createAsyncThunk(
 
 
 export const refreshFavoritesThunk = createAsyncThunk(
-  'campers/refreshFavorites',
+  'favorites/refreshFavorites',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get(`/favorites`);
