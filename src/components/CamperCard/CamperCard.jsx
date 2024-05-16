@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectFavoriteCampers } from "../../redux/selectors";
-import { addFavoriteCamperThunk, removeFavoriteThunk } from '../../redux/operations';
+
+import { addFavorite, removeFavorite } from "../../redux/camperSlice";
 import { StyledEngineProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import {Tooltip} from './Tooltip/Tooltip';
@@ -21,11 +21,10 @@ export const Camper = ({ camper }) => {
         engine,
         transmission,
         adults, } = camper;
-    const favorites = useSelector(selectFavoriteCampers);
-
+   
     const dispatch = useDispatch();
  
-    const [isFavorite, setIsFavorite] = useState(false); 
+    const isFavorite = useSelector(state => state.campers.favorites.includes(camper._id));
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -34,22 +33,13 @@ export const Camper = ({ camper }) => {
     }
     const handleCloseClick = () => {
         setOpenModal(false);
-    }
-useEffect(() => {
-    if (favorites.find((camper) => camper._id === _id)) {
-        dispatch(addFavoriteCamperThunk(_id));
-        setIsFavorite(true);
-    } else {
-        dispatch(removeFavoriteThunk(_id));
-        setIsFavorite(false);
-    }
-}, [dispatch, favorites, _id]);
+    };
 
  const handleSetFavoriteClick = () => {
         if (!isFavorite) {
-            dispatch(addFavoriteCamperThunk(_id));
+            dispatch(addFavorite(_id));
         } else {
-            dispatch(removeFavoriteThunk(_id));
+            dispatch(removeFavorite(_id));
         }
     }
     return (
@@ -86,7 +76,7 @@ useEffect(() => {
                     <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
                         <use href={`${icons}#icon-orlen`}></use></svg> {engine} </li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-fork`}></use></svg> Kitchen</li>
+                        <use href={`${icons}#icon-kitchen`}></use></svg> Kitchen</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
                         <use href={`${icons}#icon-beds`}></use></svg> {details.beds} beds</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>

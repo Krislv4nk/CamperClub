@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  getCampersThunk, addFavoriteCamperThunk, removeFavoriteThunk,
-  refreshFavoritesThunk, getFavoritesThunk
+  getCampersThunk
 } from "./operations";
 
 
@@ -12,15 +11,25 @@ const initialState = {
     error: null,
     favorites: [],
   },
-  favorites: [],
-  filter: '',
 };
 
 
 export const camperSlice = createSlice({
     name: 'campers',
     initialState,
-  reducers: {},
+  reducers: { 
+     addFavorite(state, action) {
+      state.favorites.push(action.payload);
+    },
+    removeFavorite(state, action) {
+      state.favorites = state.favorites.filter(
+        (camper) => camper._id !== action.payload
+      );
+    },
+    refreshFavorites(state, action) {
+      state.favorites = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCampersThunk.pending, (state) => {
@@ -35,21 +44,10 @@ export const camperSlice = createSlice({
         state.campers.isLoading = false;
         state.campers.error = action.payload;
       })
-    .addCase(addFavoriteCamperThunk.fulfilled, (state, action) => {
-        state.favorites = [...state.favorites, action.payload];
-    })
-      .addCase(removeFavoriteThunk.fulfilled, (state, action) => {
-        state.favorites.filter((camper) => camper.id !== action.payload.action)
-      })
-    .addCase(refreshFavoritesThunk.fulfilled, (state, action) => {
-      state.favorites = action.payload;
-    })
-      .addCase(getFavoritesThunk.fulfilled, (state, action) => {
-        state.favorites = action.payload;
-      })
+      
   },
     });
     
-    
+    export const { addFavorite, removeFavorite, refreshFavorites } = camperSlice.actions;
         
         export const campersReducer = camperSlice.reducer;
