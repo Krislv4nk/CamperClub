@@ -10,7 +10,7 @@ import css from './CamperCard.module.css';
 import icons from '../../assets/icons/sprite.svg';
 
 export const Camper = ({ camper }) => {
-    const { _id, gallery,
+    const {  gallery,
         name,
         price,
         rating,
