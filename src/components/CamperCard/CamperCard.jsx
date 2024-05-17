@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { selectFavoriteCampers } from "../../redux/selectors";
 import { addFavorite, removeFavorite } from "../../redux/camperSlice";
 import { StyledEngineProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -23,8 +23,8 @@ export const Camper = ({ camper }) => {
         adults, } = camper;
    
     const dispatch = useDispatch();
- 
-    const isFavorite = useSelector(state => state.campers.favorites.includes(camper._id));
+ const favorites = useSelector(selectFavoriteCampers);
+     const isFavorite = favorites.some((fav) => fav._id === camper._id);
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -35,13 +35,13 @@ export const Camper = ({ camper }) => {
         setOpenModal(false);
     };
 
- const handleSetFavoriteClick = () => {
-        if (!isFavorite) {
-            dispatch(addFavorite(_id));
-        } else {
-            dispatch(removeFavorite(_id));
-        }
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(camper._id));
+    } else {
+      dispatch(addFavorite(camper));
     }
+  }
     return (
         <li key={camper._id} className={css.item}>
             <img src={gallery[0]} alt="camper" className={css.foto} />
@@ -51,11 +51,11 @@ export const Camper = ({ camper }) => {
                     <div className={css.priceWrapper}>
             <p className={css.name}>€{price.toFixed(2)}</p>
     
-                <button onClick={handleSetFavoriteClick}>
-                    {isFavorite
-                        ? <svg style={{ fill: 'red' }} width={24} height={24}><use href={`${icons}#icon-like`}></use></svg>
-                        : <svg style={{ fill: 'transparent', stroke: 'black' }} width={24} height={24}><use href={`${icons}#icon-unlike`}></use></svg>}
-                </button>
+                <button onClick={handleFavoriteClick} className={css.favoriteButton}>
+              <svg width={16} height={16} className={isFavorite ? css.svg_heart_red : css.svg_heart}>
+                <use href={`${icons}#icon-unlike`}></use>
+              </svg>
+            </button>
     
            </div></div>
                 <div className={css.ratingWrap}><div className={css.ratingWrapper}>

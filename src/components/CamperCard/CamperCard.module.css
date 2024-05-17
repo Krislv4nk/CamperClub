@@ -41,6 +41,15 @@ flex-direction: row;
 align-items: center;
 margin-bottom: 8px;
 }
+.svg_heart {
+  fill: transparent;
+  stroke: var(--primary-color-black);
+}
+
+.svg_heart_red {
+  fill: var(--primary-color-red);
+  stroke: var(--primary-color-red);
+}
 .svg {
     fill: transparent;
     stroke: black;

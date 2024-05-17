@@ -9,7 +9,7 @@ const FavoritesPage = () => {
 
 
     return (
-        <div>
+        <div className={css.wrapper}>
             {favoritesCampers.length ? (
         <ul className={css.wrapper_list}>
           {favoritesCampers.map((camper) => (

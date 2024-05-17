@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { campersReducer } from './camperSlice';
 
 const campersConfig = {
-  key: 'adverts',
+  key: 'campers',
   storage,
   whitelist: ['favorites'],
 };
