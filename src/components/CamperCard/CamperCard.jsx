@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 export const Camper = ({ camper }) => {
   
-    const { _id, gallery,
+    const { gallery,
         name,
         price,
         rating,
