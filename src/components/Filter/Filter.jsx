@@ -47,25 +47,15 @@ export const Filter = ({ campers = [] }) => {
         setSelectedType(event.target.value);
     };
 const handleSearchClick = () => {
-    let filtered = campers.filter(camper => {
-      
-        if (searchTerm && !camper.location.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return false;
-        }
-       
-        if (selectedType && camper.type !== selectedType) {
-            return false;
-        }
-       
-        if (selectedEquipment.length > 0) {
-            for (let key of selectedEquipment) {
-                if (!camper.equipment[key]) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    const filtered = campers.filter((camper) => {
+        const matchesSearch = camper.location.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesEquipment = selectedEquipment.every((equip) =>
+            camper.details[equip]
+        );
+        const matchesType = selectedType ? camper.type === selectedType : true;
+        return matchesSearch && matchesEquipment && matchesType;
     });
+
     setFilteredCampers(filtered);
 };
 
