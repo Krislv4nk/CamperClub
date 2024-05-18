@@ -8,8 +8,10 @@ import {Tooltip} from './Tooltip/Tooltip';
 import { Modal } from './Modal/Modal';
 import css from './CamperCard.module.css';
 import icons from '../../assets/icons/sprite.svg';
+import { toast } from "react-toastify";
 
 export const Camper = ({ camper }) => {
+  
     const { _id, gallery,
         name,
         price,
@@ -40,7 +42,10 @@ export const Camper = ({ camper }) => {
       dispatch(removeFavorite(camper._id));
     } else {
       dispatch(addFavorite(camper));
-    }
+      }
+        if (!camper) {
+    return toast.error('Camper not found'); 
+}
   }
     return (
         <li key={camper._id} className={css.item}>

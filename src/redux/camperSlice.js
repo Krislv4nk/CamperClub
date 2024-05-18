@@ -18,7 +18,10 @@ export const camperSlice = createSlice({
     name: 'campers',
     initialState,
   reducers: { 
-     addFavorite(state, action) {
+    addFavorite(state, action) {
+      if (!state.favorites) {
+                state.favorites = [];
+            }
       state.favorites.push(action.payload);
     },
     removeFavorite(state, action) {
