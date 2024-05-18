@@ -3,7 +3,7 @@ import { Camper } from "../CamperCard/CamperCard";
 import css from "./Filter.module.css";
 import icons from "../../assets/icons/sprite.svg";
 
-export const Filter = ({ campers }) => {
+export const Filter = ({ campers = [] }) => {
     const details = {
         adults: "Adults",
         transmission: "Transmission",
@@ -26,34 +26,52 @@ export const Filter = ({ campers }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedEquipment, setSelectedEquipment] = useState([]);
     const [selectedType, setSelectedType] = useState("");
+    const [filteredCampers, setFilteredCampers] = useState(campers);
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
     const handleEquipmentChange = (event) => {
-    const key = event.target.value;
-    setSelectedEquipment((prevSelectedEquipment) => {
-        if (prevSelectedEquipment.includes(key)) {
-            return prevSelectedEquipment.filter(item => item !== key);
-        } else {
-            return [...prevSelectedEquipment, key];
-        }
-    });
-};
+        const key = event.target.value;
+        setSelectedEquipment((prevSelectedEquipment) => {
+            if (prevSelectedEquipment.includes(key)) {
+                return prevSelectedEquipment.filter(item => item !== key);
+            } else {
+                return [...prevSelectedEquipment, key];
+            }
+        });
+    };
 
     const handleTypeChange = (event) => {
         setSelectedType(event.target.value);
     };
+const handleSearchClick = () => {
+    let filtered = campers.filter(camper => {
+      
+        if (searchTerm && !camper.location.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return false;
+        }
+       
+        if (selectedType && camper.type !== selectedType) {
+            return false;
+        }
+       
+        if (selectedEquipment.length > 0) {
+            for (let key of selectedEquipment) {
+                if (!camper.equipment[key]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    });
+    setFilteredCampers(filtered);
+};
 
-    const filteredCampers = Array.isArray(campers) ? campers.filter((camper) => {
-        const matchesSearch = camper.location.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesEquipment = selectedEquipment.every((equip) =>
-            camper.details[equip]
-        );
-        const matchesType = selectedType ? camper.type === selectedType : true;
-        return matchesSearch && matchesEquipment && matchesType;
-    }) : [];
+
+
+    const isButtonDisabled = !searchTerm && !selectedEquipment.length && !selectedType;
 
     return (
         <div>
@@ -94,7 +112,7 @@ export const Filter = ({ campers }) => {
                 <h5 className={css.typeTitle}>Vehicle type</h5>
                 <ul className={css.typeList}>
                     {types.map((type) => (
-                        <li key={type} className={`${css.typeItem} ${selectedType.includes(type) ? css.selectedType : ''}`}>
+                        <li key={type} className={`${css.typeItem} ${selectedType === type ? css.selectedType : ''}`}>
                             <label key={type} htmlFor={type}>
                                 <input className={css.hiddenRadio}
                                     type="radio"
@@ -111,8 +129,6 @@ export const Filter = ({ campers }) => {
                         </li>
                     ))}
                 </ul>
-            </div>
-            <ul>
                 <button 
                     onClick={handleSearchClick} 
                     className={css.searchButton}
@@ -120,6 +136,8 @@ export const Filter = ({ campers }) => {
                 >
                     Search
                 </button>
+            </div>
+            <ul>
                 {filteredCampers.map((camper) => (
                     <Camper key={camper._id} camper={camper} />
                 ))}
@@ -127,3 +145,4 @@ export const Filter = ({ campers }) => {
         </div>
     );
 };
+

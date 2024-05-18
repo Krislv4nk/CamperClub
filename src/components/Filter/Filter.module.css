@@ -117,6 +117,7 @@ color: var(--primary-color-black);
     display: flex;
     flex-direction: row;
     gap: 8px;
+    margin-bottom: 64px;
 }
 .typeSpan {
 
@@ -158,12 +159,16 @@ cursor: pointer;
 }
 
 .searchButton {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
+   border-radius: 200px;
+padding: 16px 60px;
+width: 173px;
+height: 56px;
+font-weight: 600;
+font-size: 16px;
+line-height: 125%;
+color: var(--primary-color-input);
+background-color: var(--primary-color-red);
+border: none;
     cursor: pointer;
 }
 
@@ -173,5 +178,5 @@ cursor: pointer;
 }
 
 .searchButton:hover:not(:disabled) {
-    background-color: #0056b3;
+    background-color: var(--secondary-color-red);
 }
