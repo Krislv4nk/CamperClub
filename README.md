@@ -1,8 +1,8 @@
-# Camper Rental Website
+# CamperClub Website
 
-![Camper Image 1](https://ftp.goit.study/img/campers-test-task/1-1.webp)
-![Camper Image 2](https://ftp.goit.study/img/campers-test-task/1-2.webp)
-![Camper Image 3](https://ftp.goit.study/img/campers-test-task/1-3.webp)
+![Camper Image 1](./src/assets/images/camper-1.jpg)
+![Camper Image 2](./src/assets/images/camper-2.jpg)
+![Camper Image 3](./src/assets/images/camper-5.jpg)
 
 ## Description
 
