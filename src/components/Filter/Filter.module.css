@@ -67,7 +67,7 @@ mix-blend-mode: multiply;
 display: flex;
 gap: 8px;
 flex-direction: column;
-text-align: center;
+
 align-items: center;
 justify-content: center;
 font-weight: 500;
@@ -84,7 +84,8 @@ background-color: var(--primary-color-input);
      cursor: pointer;
      display: flex;
      align-items: center;
-     justify-content: center;
+    justify-content: center;
+    margin-bottom: 8px;
 }
 
 .hiddenCheckbox,

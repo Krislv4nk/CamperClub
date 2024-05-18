@@ -8,7 +8,7 @@ export const Filter = ({ campers = [] }) => {
         adults: "Adults",
         transmission: "Transmission",
         engine: "Engine",
-        airConditioner: "Air Conditioner", 
+        airConditioner: "AC", 
         bathroom: "Bathroom", 
         kitchen: "Kitchen",
         beds: "Beds", 
