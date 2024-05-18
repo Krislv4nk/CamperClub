@@ -24,12 +24,12 @@ export const Features = ({ camper }) => {
     return (
         <div className={css.featuresWrapper}>
             <ul className={css.featureList}>
-                <li className={css.listItem} ><svg width={20} height={20} >
-                        <use href={`${icons}#icon-Users`}></use></svg> {camper.adults} adults</li>
+                <li className={css.listItem} ><svg width={20} height={20} className={css.svg}>
+                        <use href={`${icons}#icon-adults`}></use></svg> {camper.adults} adults</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-Container`}></use></svg> {camper.transmission}</li>
+                        <use href={`${icons}#icon-transmission`}></use></svg> {camper.transmission}</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
-                        <use href={`${icons}#icon-orlen`}></use></svg> {camper.engine} </li>
+                        <use href={`${icons}#icon-engine`}></use></svg> {camper.engine} </li>
                 {Object.entries(details).map(([key]) => (
                     <li  className={css.listItem} key={key}><svg key={key} className={css.svg} width={20} height={20}><use href={`${icons}#icon-${key}`}></use></svg>
                         <span>{key}</span>

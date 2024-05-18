@@ -24,7 +24,7 @@ export const Camper = ({ camper }) => {
    
     const dispatch = useDispatch();
  const favorites = useSelector(selectFavoriteCampers);
-     const isFavorite = favorites.some((fav) => fav._id === camper._id);
+     const isFavorite = Array.isArray(favorites) && favorites.some((fav) => fav._id === camper._id);
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -70,11 +70,11 @@ export const Camper = ({ camper }) => {
                
             <ul className={css.list}>
                     <li className={css.listItem} ><svg width={20} height={20} >
-                        <use href={`${icons}#icon-Users`}></use></svg> {adults} adults</li>
+                        <use href={`${icons}#icon-adults`}></use></svg> {adults} adults</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
-                        <use href={`${icons}#icon-Container`}></use></svg> {transmission}</li>
+                        <use href={`${icons}#icon-transmission`}></use></svg> {transmission}</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svgItem}>
-                        <use href={`${icons}#icon-orlen`}></use></svg> {engine} </li>
+                        <use href={`${icons}#icon-engine`}></use></svg> {engine} </li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
                         <use href={`${icons}#icon-kitchen`}></use></svg> Kitchen</li>
                     <li className={css.listItem}><svg width={20} height={20} className={css.svg}>
