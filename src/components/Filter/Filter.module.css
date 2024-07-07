@@ -54,7 +54,7 @@ color: var(--primary-color-black);
 .equipmentList {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 9px;
     margin-bottom: 32px;
 }
 .equipmentItem {
